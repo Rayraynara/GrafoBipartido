@@ -9,7 +9,7 @@ def generate_random_graph(nodes, edge_probability=0.5):
                 edges.append((u, v, weight))
     return edges
 
-def save_graph_to_txt(edges, filename="graph.txt"):
+def save_graph_to_txt(edges, filename="data/graph.txt"):
     with open(filename, "w") as f:
         for u, v, weight in edges:
             f.write(f"{u} {v} {weight}\n")
@@ -19,6 +19,3 @@ def main():
     edges = generate_random_graph(nodes)
     save_graph_to_txt(edges)
     print(f"Grafo gerado com {len(edges)} arestas e salvo em graph.txt")
-
-if __name__ == "__main__":
-    main()
