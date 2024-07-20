@@ -60,7 +60,7 @@ def ler_grafo_arquivo(nome_arquivo):
     return grafo
 
 def main():
-    nome_arquivo = "../data/grafo.txt"  
+    nome_arquivo = "../data/graph.txt"  
     grafo = ler_grafo_arquivo(nome_arquivo) 
 
     bipartido, particao1, particao2 = eh_bipartido(grafo)
