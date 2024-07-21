@@ -22,6 +22,21 @@ class Grafo:
     def obter_num_arestas(self):
         return self.num_arestas
 
+def ler_grafo_arquivo(nome_arquivo):
+    grafo = Grafo()
+    with open(nome_arquivo, 'r') as arquivo:
+        linhas = arquivo.readlines()
+        V = int(linhas[0].strip())
+        for i in range(1, len(linhas)):
+            linha = list(map(int, linhas[i].strip().split()))
+            if len(linha) > 1:
+                u = linha[0]
+                vizinhos = linha[1:]
+                for v in vizinhos:
+                    grafo.adicionar_aresta(u, v)
+    print(f"Adjacência do grafo: {grafo.obter_adjacencia()}")                
+    return grafo
+
 def eh_bipartido(grafo):
     adjacencia = grafo.obter_adjacencia()
     cor = {}

@@ -1,21 +1,6 @@
 import os
 from graph_generator.gerador_grafo import generate_random_graph, save_graph_to_txt
-from grafo_bipartido import Grafo, eh_bipartido
-
-def ler_grafo_arquivo(nome_arquivo):
-    grafo = Grafo()
-    with open(nome_arquivo, 'r') as arquivo:
-        linhas = arquivo.readlines()
-        V = int(linhas[0].strip())
-        for i in range(1, len(linhas)):
-            linha = list(map(int, linhas[i].strip().split()))
-            if len(linha) > 1:
-                u = linha[0]
-                vizinhos = linha[1:]
-                for v in vizinhos:
-                    grafo.adicionar_aresta(u, v)
-    print(f"Adjacência do grafo: {grafo.obter_adjacencia()}")                
-    return grafo
+from grafo_bipartido import eh_bipartido,ler_grafo_arquivo
 
 def main():
     nodes = int(input("Digite o número de nós: "))
