@@ -7,19 +7,20 @@ def ler_grafo_arquivo(nome_arquivo):
     with open(nome_arquivo, 'r') as arquivo:
         linhas = arquivo.readlines()
         V = int(linhas[0].strip())
-        for i in range(1, V + 1):
+        for i in range(1, len(linhas)):
             linha = list(map(int, linhas[i].strip().split()))
             if len(linha) > 1:
                 u = linha[0]
                 vizinhos = linha[1:]
                 for v in vizinhos:
                     grafo.adicionar_aresta(u, v)
+    print(f"Adjacência do grafo: {grafo.obter_adjacencia()}")                
     return grafo
 
 def main():
     nodes = int(input("Digite o número de nós: "))
     edges = generate_random_graph(nodes)
-    save_graph_to_txt(edges)
+    save_graph_to_txt(nodes, edges)
     print(f"Grafo gerado com {len(edges)} arestas e salvo em graph.txt")
 
     nome_arquivo = "data/graph.txt"
